@@ -26,3 +26,46 @@ Build the Application with Root Privileges
 
 Use sudo make to compile the application.
 This step ensures all necessary dependencies are linked, and administrative permissions handle system-level builds if required.
+
+TA-2
+
+Gesture Recognition Using ONNX Model on Jetson Orin Nano
+Prerequisites
+Jetson Orin Nano Setup
+
+Ensure the Jetson Orin Nano is powered and configured with the JetPack SDK installed.
+Install OpenCV, Numpy, and ONNX Runtime:
+sudo apt update
+sudo apt install python3-opencv python3-pip
+pip3 install numpy onnxruntime
+
+
+Clone this project repository:
+git clone https://github.com/<username>/<repo-name>.gitcd <repo-name>
+Model Preparation
+
+Place the ONNX model file (gesture_model.onnx) in the project directory.
+Ensure the model is compatible with the input size 64x64x3.
+Steps to Run the Gesture Recognition Project
+
+1. Connect the Camera
+Attach a USB camera to the Jetson Orin Nano.
+Ensure it is recognized using the command:
+ls /dev/video*
+Note the camera index (e.g., /dev/video0).
+2. Run the Gesture Recognition Script
+Open the terminal and navigate to the project directory:
+cd <repo-name>
+Execute the Python script:
+python3 gesture_recognition.py
+3. Adjust Camera Settings
+Modify the camera index in the script (cv2.VideoCapture(0)) if the default camera is not /dev/video0.
+4. Gesture Recognition Process
+The script will:
+Capture live video from the camera.
+Resize and preprocess each frame to match the model's input size.
+Perform inference using the ONNX model.
+Display the recognized gesture on the video feed.
+5. Exit the Application
+Press the q key to terminate the program.
+

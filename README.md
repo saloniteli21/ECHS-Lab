@@ -1,5 +1,4 @@
 # ECHS-Lab
-#TA-1
 Navigate to the DeepStream Folder
 
 Open the DeepStream installation folder, typically located at /opt/nvidia/deepstream.
